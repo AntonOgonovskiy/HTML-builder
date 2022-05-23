@@ -18,7 +18,6 @@ fs.readdir(path.join(__dirname, 'styles'), { withFileTypes: true }, (error, data
         if (ext === '.css') {
             fs.readFile(path.join(__dirname, 'styles', i.name), (err, data) => {
                 if (err) throw err;
-                console.log(i.name)
                 fs.appendFile(path.join(__dirname, 'project-dist', 'bundle.css'), data, (error) => {
                     (error) => {
                         if (error) console.error(error.message);

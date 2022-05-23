@@ -12,9 +12,6 @@ fs.writeFile(path.join(__dirname, 'text.txt'),
 stdout.write('Hello\nEnter anything\n');
 
 stdin.on('data', (data) => {
-    if (data.toString().trim() === 'exit') {
-        process.exit()
-    }
     fs.appendFile(path.join(__dirname, 'text.txt'), data,
         (error) => {
             if (error) {
@@ -22,5 +19,10 @@ stdin.on('data', (data) => {
             }
         }
     )
+    if (data.toString().trim() === 'exit') {
+        process.exit()
+    }
+
 })
-process.on('exit', () => stdout.write('good luck'))
+process.on('exit', () => console.log('good luck'))
+process.on('SIGINT', () => { process.exit() })

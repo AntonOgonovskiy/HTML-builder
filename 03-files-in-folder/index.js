@@ -10,7 +10,8 @@ fs.readdir(path.join(__dirname, 'secret-folder'), { withFileTypes: true }, (erro
             const name = i.name.split('.')[0];
             const type = i.name.split('.')[1];
             fs.stat(path.join(__dirname, 'secret-folder', i.name), (error, stats) => {
-                console.log(`${name} - ${type} - ${stats.size}kb`)
+
+                console.log(`${name} - ${type} - ${stats.size} b`)
             })
         }
     })
