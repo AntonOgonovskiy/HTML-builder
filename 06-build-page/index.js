@@ -48,7 +48,7 @@ async function copyDir(assets, destAssets) {
 }
 
 async function css(styles, bundle) {
-    const list = await (await fsPromises.readdir(styles)).reverse()
+    const list = (await fsPromises.readdir(styles)).reverse()
     let bundleCss = ''
     for (let style of list) {
         let stats = path.extname(style)
